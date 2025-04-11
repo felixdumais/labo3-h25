@@ -36,8 +36,10 @@ int main(int argc, char* argv[]){
     // Code lisant les options sur la ligne de commande
     char *entree, *sortie;                          // Zones memoires d'entree et de sortie
     int modeOrdonnanceur = ORDONNANCEMENT_NORT;     // NORT est la valeur par defaut
-    unsigned int runtime, deadline, period;         // Dans le cas de l'ordonnanceur DEADLINE
-
+    unsigned int runtime = 0;         // Dans le cas de l'ordonnanceur DEADLINE
+    unsigned int deadline = 0;  
+    unsigned int period = 0;
+    
     if(argc < 2){
         printf("Nombre d'arguments insuffisant\n");
         return -1;

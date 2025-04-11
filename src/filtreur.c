@@ -41,7 +41,9 @@ int main(int argc, char* argv[]){
     // Code lisant les options sur la ligne de commande
     char *entree, *sortie;                          // Zones memoires d'entree et de sortie
     int modeOrdonnanceur = ORDONNANCEMENT_NORT;     // NORT est la valeur par defaut
-    unsigned int runtime, deadline, period;         // Dans le cas de l'ordonnanceur DEADLINE
+    unsigned int runtime = 0;         // Dans le cas de l'ordonnanceur DEADLINE
+    unsigned int deadline = 0;  
+    unsigned int period = 0;
     int filter_type = -1;
 
     if(argc < 2){

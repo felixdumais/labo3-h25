@@ -202,7 +202,9 @@ int main(int argc, char* argv[])
 	// Code lisant les options sur la ligne de commande
     char *entree[4];    							// Zones memoires d'entree
     int modeOrdonnanceur = ORDONNANCEMENT_NORT;     // NORT est la valeur par defaut
-    unsigned int runtime, deadline, period;         // Dans le cas de l'ordonnanceur DEADLINE
+    unsigned int runtime = 0;         // Dans le cas de l'ordonnanceur DEADLINE
+    unsigned int deadline = 0;  
+    unsigned int period = 0;
 
     if(argc < 1){
         printf("Nombre d'arguments insuffisant\n");
@@ -448,6 +450,7 @@ int main(int argc, char* argv[])
     }
 
     start_time = get_time();
+    running_time = start_time;
 	int max_fps;
 	double min_frame_time;
 	long double frame_time_ms;
@@ -474,7 +477,6 @@ int main(int argc, char* argv[])
             if(pthread_mutex_trylock(&(tableau_zone_lecteur[i]->header->mutex)))
             {
                 evenementProfilage(&profInfos, ETAT_ENPAUSE);
-                // usleep(DELAI_INIT_READER_USEC);
                 continue;
             }
             if(attenteLecteurAsync(tableau_zone_lecteur[i])) 

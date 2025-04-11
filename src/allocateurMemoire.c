@@ -47,7 +47,7 @@ int prepareMemoire(size_t tailleImageEntree, size_t tailleImageSortie)
             exit(1); 
         }
 
-        // if (mlock(BUFFER, RLIMIT_MEMLOCK) != 0)
+        // if (mlock(BUFFER, MAX_ALLOC * MEM_SLOTS) != 0)
         // {
         //     perror("mlock failed");
         //     exit(1);
